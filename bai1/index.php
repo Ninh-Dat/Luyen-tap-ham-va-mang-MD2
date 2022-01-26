@@ -15,26 +15,16 @@ print_r($arr);
 
 function sortArr($arr)// sắp xếp mảng theo hướng tăng dần
 {
-    for ($i = 0; $i < count($arr); $i++) {
-        $min = $arr[$i];
-        $index = $i;
-        for ($j = $i + 1; $j < count($arr); $j++) {
-            if ($min > $arr[$j]) {
-                $min = $arr[$j];
-                $index = $j;
-            }
-        }
-        $temp=$arr[$i];
-        $arr[$i]=$min;
-        $arr[$index]=$temp;
-    }
+    sort($arr);
     return $arr;
 }
-
-$arr = sortArr($arr);
 echo "<pre>";
-echo "Mảng được sắp xếp theo hướng tăng dần"."<br>";
-print_r($arr);
+echo "Sắp xếp mảng theo hướng tăng dần"."<br>";
+print_r(sortArr($arr));
+echo "<br>";
+
+
+
 
 function loaiBoPhanTuGiongNhau($arr){
     $arr1 = [];
@@ -45,5 +35,7 @@ function loaiBoPhanTuGiongNhau($arr){
     }
     return $arr1;
 }
-$arr = [1,2,3,1,1,2,4,5];
+echo "<pre>";
+echo "Loại bỏ các phần tử trùng nhau trong mảng"."<br>";
+$arr = [1,2,3,1,1,2,4,5,5,6,7];
 print_r(loaiBoPhanTuGiongNhau($arr));
