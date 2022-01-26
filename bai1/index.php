@@ -1,11 +1,49 @@
 <?php
- function createArr($number)
- {
-     $arr = [];
-     for ($i = 0; $i < $number; $i++) {
-         $arr[] = rand(1, 100);
-     }
+function createArr($number)
+{
+    $arr = [];
+    for ($i = 0; $i < $number; $i++) {
+        $arr[] = rand(1, 100);
+    }
     return $arr;
- }
- echo "<pre>";
- print_r(createArr(10));
+}
+
+$arr = createArr(10);
+echo "<pre>";
+echo "Mảng ngẫu nhiên"."<br>";
+print_r($arr);
+
+function sortArr($arr)// sắp xếp mảng theo hướng tăng dần
+{
+    for ($i = 0; $i < count($arr); $i++) {
+        $min = $arr[$i];
+        $index = $i;
+        for ($j = $i + 1; $j < count($arr); $j++) {
+            if ($min > $arr[$j]) {
+                $min = $arr[$j];
+                $index = $j;
+            }
+        }
+        $temp=$arr[$i];
+        $arr[$i]=$min;
+        $arr[$index]=$temp;
+    }
+    return $arr;
+}
+
+$arr = sortArr($arr);
+echo "<pre>";
+echo "Mảng được sắp xếp theo hướng tăng dần"."<br>";
+print_r($arr);
+
+function loaiBoPhanTuGiongNhau($arr){
+    $arr1 = [];
+    for ($i=0;$i<count($arr);$i++){
+        if(!in_array($arr[$i],$arr1)){
+            $arr1[] = $arr[$i];
+        }
+    }
+    return $arr1;
+}
+$arr = [1,2,3,1,1,2,4,5];
+print_r(loaiBoPhanTuGiongNhau($arr));
